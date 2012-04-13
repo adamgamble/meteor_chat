@@ -1,0 +1,19 @@
+/* CSS declarations go here */
+
+
+.user_list  {
+  border: 1px solid;
+  width:200px;
+  height: 500px;
+  float: right;
+}
+
+.current_user {
+  font-weight: bold;
+}
+
+#chat_room {
+  float:left;
+  width: 80%;
+  border: 1px solid;
+}

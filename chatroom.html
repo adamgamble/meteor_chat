@@ -1,0 +1,52 @@
+<head>
+  <title>Chat Room</title>
+</head>
+
+<body>
+  {{> create_user}}
+  {{> chat_room}}
+  {{> user_list}}
+  <div style="clear:both;"></div>
+  {{> chat_controls}}
+</body>
+
+<template name="user_list">
+{{#if current_user}}
+  <ul class="user_list">
+    {{#each users}}
+    <li class="{{user_class}}">{{email_address}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
+</template>
+
+<template name="create_user">
+  {{#unless current_user}}
+    <div id="create_user">
+      <label for="user">Email:</label>
+      <input type="text" name="email" id="email_address"/>
+      <input type="button" value="Create User" class="new_user_button" />
+    </div>
+  {{/unless}}
+</template>
+
+<template name="chat_room">
+{{#if current_user}}
+  <div id="chat_room">
+    <ul>
+      {{#each messages}}
+      <li>{{message_content}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+</template>
+
+<template name="chat_controls">
+{{#if current_user}}
+  <div id="chat_controls">
+    <input type="text" name="message" id="message"/>
+    <input type="button" id="send_message" value="Send" />
+  </div>
+{{/if}}
+</template>
